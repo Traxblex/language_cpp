@@ -7,44 +7,5 @@
     <link rel="shortcut icon" href="img/logo_cfainsta.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <style>
-    
-      .carousel-img {
-        height: 300px;
-        object-fit: cover;
-      }
-      @media (max-width: 576px) {
-        .carousel-img { height: 180px; }
-      }
-    </style>
+    <link rel="stylesheet" href="commun/style.css">
 </head>
-<body >
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.php">PROMO 321</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="matiere/info.php">INFO</a>
-                        </li>
-                        <li class="nav-item center">
-                            <a class="nav-link" href="matiere/math.php">MATH</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="matiere/anglais.php">ANGLAIS</a>
-                        </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="matiere/francais.php">FRANCAIS</a>
-                        </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="matiere/cejm.php">CEJM</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
