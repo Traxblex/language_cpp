@@ -1,0 +1,98 @@
+Exo 3 Ecrire un algo prog c et dev php qui permet de saisir deux bornes entières et qui détermine tous les nombres parfaits compris entre les bornes 
+
+Un nombre est dit parfait s’il est égal  à la somme des ses diviseurs sauf lui même *
+
+Le nombre 20 est parfait = 1 + 2 +4 + 7 + 14 +28
+
+Algo : parfait
+
+Déclaration
+
+nb div somme b1 b2 entier
+
+Début
+
+Afficher (”Donner la première borne : ”)
+
+Saisir (b1)
+
+Afficher (”Donner la deuxième borne :”)
+
+saisir (b2)
+
+Pour nb allant de b1 a b2 faire 
+
+somme <- 
+
+Pour div allant de 1 à nb -1 faire 
+
+si nb % div = 0
+
+ALors somme <- somme div
+
+Fin si 
+
+Fin pour 
+
+SI somme = nb 
+
+Alors Afficher (nb,”est un nombre parfait.”)
+
+Fin si
+
+Fin pour
+
+Afficher(”il y’a”,cpt,”nombres parfaits”)
+
+Fin parfait
+
+#include <stdio.h>
+int main() {
+    int nb,div, somme,b1,b2,cpt=0;
+    printf("Donner la première borne : ");
+    scanf("%d", &b1);
+    printf("Donner la deuxième borne : ");
+    scanf("%d", &b2);
+    for (nb = b1; nb <= b2; nb++) {
+        somme = 0;
+        for (div = 1; div < nb; div++) {
+            if (nb % div == 0) {
+                somme += div;
+            }
+        }
+        if (somme == nb) {
+            printf("%d est un nombre parfait.\n", nb);
+            cpt++;
+        }
+    }
+    printf("Il y a %d nombres parfaits.\n", cpt);
+    return 0;
+}
+EXo4 : Ecrite un algo, un prog c et un dev php qui permet de calculer le factoriel d'un nombre entier.
+ n ! = 1*2*...*(n-1)*n
+
+ 5!= 1*2*3*4*5
+Algo : factoriel
+Déclaration
+nb,n,total :entier
+Début
+afficher(”donner un nombre entier :”)
+saisir(nb)
+total <- 1
+pour n allant de 1 à nb faire
+total <- total * n
+fin pour
+afficher(”le factoriel de”,nb,”est”,fact)
+Fin factoriel
+
+#include <stdio.h>
+int main() {
+    int nb, n, fact = 1;
+    printf("Donner un nombre entier : ");
+    scanf("%d", &nb);
+    for (n = 1; n <= nb; n++) {
+        fact *= n;
+    }
+    printf("Le factoriel de %d est %d\n", nb, fact);
+    return 0;
+}

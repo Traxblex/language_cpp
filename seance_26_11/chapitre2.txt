@@ -1,0 +1,232 @@
+Chapitre 2 : Les alternatives, les structures de contrôle
+
+2.1. L'alternative simple
+syntaxe en algo :
+    Si condition
+        Alors instruction
+    Fin si
+
+Syntaxe dans les langages (C et PHP) :
+    if (condition) {
+        instruction ;
+    }
+L'alternative simple exécute une ou plusieurs instructions si une condition est vérifiée. Dans le cas contraire, le bloc d'instruction est simplement sauté.
+
+La condition peut être simple ou composée à l'aide des opérateurs et, ou, non.
+
+Exemple :
+
+    Si note < 0 ou note > 20
+        Alors afficher ("la note saisie est erronée.")
+    Fin si
+
+    if (note < 0 || note > 20 ){
+        printf("la note saisie est erronée.");
+    }
+
+2.2. L'alternative double
+Syntaxe en algo :
+    Si condition
+       alors instruction_1
+       sinon instruction_2
+    Fin si
+Syntaxe dans les langages (C et PHP) :
+    if (condition){
+        instruction_1;
+    } else {
+        instruction2;
+    }
+L'alternative double exécute la première instruction ou la deuxième instruction selon que la condition est vérifiée ou non. Il y a une exclusion mutuelle des deux instructions : c'est soit l'une soit l'instruction qui est exécutée.
+Mais jamais les deux a la fois.
+
+Exemple :
+    Si moyenne >= 10
+       Alors afficher("etudiant admis")
+       Sinon afficher("etudiant recalé")
+    Fin si
+
+    if (moyenne >= 10){
+        printf("etudiant admis");
+    } else {
+        printf("etudiant recalé");
+    }
+
+2.3. Le choix multiple
+Syntaxe en Algo :
+    Selon l'expression faire
+      cas valeur_1 : instruction_1
+    …
+      Sinon instruction_defaut
+    FIn selon
+Syntaxe dans les langages (C et PHP) :
+    switch(expression{
+      case valeur_1 : instruction_1; break;
+    …
+    default : instruction_defaut; break;
+    }
+
+Le selon permet une bonne structuration de l'imbrication des alternatives. L'expression doit être de type enuméré (entier ou caractère).
+
+Exemple :
+    selon jour faire
+      cas 1 : cas 2 : cas 3 : cas 4 : cas 5 :
+         afficher("C'est un jour de repos")
+          sinon afficher("erreur de saisie")
+    Fin selon
+swith (jour){
+    case 1 : case 2 : case 3 : case 4 : case 5 :
+       printf("c'est un jour de travail") ; break;
+    case 6 : case 7 :
+       printf("C'est un jour de repos"); break;
+
+    default : printf ("erreur de saisie"); break;
+} 
+
+#include <stdio.h>
+int main(){
+    int nb;
+    printf("donner un nombre entier : ");
+    scanf("d", & nb);
+    if (nb %2==0){
+        printf("nombre pair");
+    }else{
+        printf("nombre impair");
+    }
+    return 0;
+}
+
+Exercice 2:
+
+Ecrire un algo, prog C et dev PHP qui permet de résoudre dans R l'equation du premer degre 
+                                        a*x + b = 0
+                                        a  = 0
+                                            x = -b/a
+                                        a  != 0
+                                        /     \
+                                    b = 0 ?   X = -b/a
+                                    /    \
+                                    R    vide
+            Algo : equation_1
+            Déclaration 
+                variables
+                    a, b, x : reel
+            Début
+                 Afficher ("donner la valeur de a : ")
+                 Saisir (a)
+                    Afficher ("donner la valeur de b : ")
+                    Saisir (b)
+                    Si a == 0
+                        Alors 
+                            Si b = 0
+                                Alors afficher ("Ens. des solutions dans R")
+                            Sinon 
+                                afficher ("Ens. des solution vide")
+                            Fin si
+                        Sinon 
+                            x <- (-b/a)
+                            afficher ("la solution est : ", x)
+                    Fin si
+            Fin Equation_1
+        
+    #include <stdio.h>
+    int main(){
+        float a, b, x;
+        printf("Donner le premier coef: ");
+        scanf("%f", &a);
+        printf("Donner le deuxième coef : ");
+        scanf("%f", &b);
+        if (a == 0){
+            if (b == 0){
+                printf("Ens. des solutions est R");
+            }else{
+                printf("Ens. des solution est vide");
+            }
+        }else{
+            x = -b/a;
+            printf("la solution est : %f", x);
+        }
+        return 0;
+    }
+
+    exercice 3:
+    Ecrire un algo, prog c et dev PHP qui permet de saisir une date et de vérifier sa validité. Une année est bissectile si elle est divisible par 4 et non par 100 sauf di elle divisible par 400.
+
+    Algo : date
+    Déclaration
+        jour, mous, année, nbfevrier: entier
+    Début
+        afficher ("donner une date:")
+        Saisir (jour, mois, année)
+        si jour < 1 ou jour > 31 ou mois < 1 ou mois > 12 ou année <= 0
+            Alors afficher ("la date saisie est invalide")
+        Sinon
+            Selon mois faire
+                
+                cas 4, 6, 9, 11 :
+                    Si jour <= 30
+                        Alors afficher ("la date saisie est valide")
+                    Sinon
+                        afficher ("la date saisie est invalide")
+                    Fin si
+                cas 1, 3, 5, 7, 8, 10, 12 :
+                    Si jour <= 31
+                        Alors afficher ("la date saisie est valide")
+                    Sinon
+                        afficher ("la date saisie est invalide")
+                    Fin si
+                cas 2 :
+                    Si (année % 4 == 0 et année % 100 != 0) ou (année % 400 == 0)
+                        Alors nbfevrier <- 29
+                        Sinon nbfevrier <- 28
+                    Fin si
+                            Si jour > nbfevrier
+                                Alors afficher ("la date saisie est invalide")
+                            Sinon
+                                afficher ("la date saisie est valide")
+                            Fin si
+                        Sinon //année non bissextile
+                            Si jour <= 28
+                                Alors afficher ("la date saisie est valide")
+                            Sinon
+                                afficher ("la date saisie est invalide")
+                            Fin si
+                    Fin si
+
+#include <stdio.h>
+int main(){
+    int jour, mois, année, nbfevrier;
+    printf("donner une date (jj mm aaaa) : ");
+    scanf("%d/%d/%d", &jour, &mois, &année);
+
+    if (jour < 1 || jour > 31 || mois < 1 || mois > 12 || année < 1900){
+        printf("la date saisie est invalide");
+    }else{
+    //switch = selon
+        switch (mois){
+            case 4: case 6: case 9: case 11:
+                if (jour <= 30){
+                    printf("la date saisie est valide");
+                }else{
+                    printf("la date saisie est invalide");
+                }
+                // break = fin du cas
+                break;
+            case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+                printf("la date saisie est valide")
+                break;
+            case 2:
+                if (année % 4 == 0 && année % 100 != 0) || (année % 400 == 0){
+                    nbfevrier = 29;
+                }else{
+                    nbfevrier = 28;
+                }
+                if (jour > nbfevrier){
+                    printf("la date saisie est invalide");
+                }else{
+                    printf("la date saisie est valide");
+                }
+                break;
+        }
+    }
+    return 0;
+}

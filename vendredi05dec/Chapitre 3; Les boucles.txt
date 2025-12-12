@@ -1,0 +1,169 @@
+Chapitre 3; Les boucles
+
+3.1 La boucle tant que 
+Syntaxe en Algo : 
+    Tant que condition Faire: 
+        instruction
+    Fin tant que
+
+Syntaxe dans les langages '(C et  PHP):
+    while (conditions) {
+        instruction;
+    }
+
+La boucle tant que execute une ou plusieur instruction au tant de fois qu'une condition reste vérifiee. Si la condition est au depart non verifier il n'y aura aucune execution de l'instruction.
+Dans le coprs de la boucle, il faut prévoir une evolution de la condition, sinon on aura une boucle infinie.
+
+Exemple: Ecrire un algo puis un prog C qui affiche tous les nombres pairs compris entre 2 et 20.
+
+Algo: pairs
+Déclaration     
+    nb : entier
+Début
+    nb <- 2 
+    Tant que nb <= 2à Faire   
+        Afficher ("nombre pair : ", nb)
+        nb<- nb + 2
+    Fin tant que 
+Fin pairs
+
+Traduction en C : 
+#include <stdio.h>
+int main () {
+    int nb ;
+    nb = 2 ;
+    while (nb <= 20) {
+        printf ("nombre pair : %", nb);
+        nb = nb + 2;
+    }
+    return 0;
+}
+
+2. La boucle faire - tant que 
+Syntaxe en algo : 
+    Faire 
+            instruction
+    Tant que condition
+
+Syntaxe dans les lagages C et PHP : 
+    do{
+        instruction ;
+    }while (condition);
+
+La boucle faire - tant que execute au moins une fois l'instruction avant de tester la condition car les test de la condition est posterieur à l'execution de l'instruction.
+
+Exemple: Ecrire un algo puis un prog C qui affiche tous les nombres pairs compris entre 2 et 20.
+
+Algo : pairs
+Déclaration 
+    nb : entier
+Début
+    nb <- 2 
+    Faire   
+        afficher ("nombre pair : ", nb)
+        nb <- nb + 2
+    tant que nb < 2
+Fin pairs 
+
+Traduction en C : 
+#include <stdio.h>
+int main () {
+    int nb ;
+    nb = 2 ;
+    do {
+        printf ("/nombre pair : %d", nb);
+        nb = nb + 2;
+    } while (nb <= 2);
+    return 0;
+}
+
+3.3 La boucle posterieur
+Syntaxe en algo : 
+    Pour indice allant de ValeurDebut à ValeurFin pas de Pas Faire  
+        instruction
+    Fin pour 
+
+Syntaxe dans les langages C  et php : 
+    for (initialisation ;  condition ; evolution) {
+        instruction ;    
+    }
+
+    La boucle pour exécute une ou plusieurs instructions un nombre de fois connu à l'avance calculé avec la valeur de début ,
+    la valeur de fin et le pas (l'incrémentation ou la décrémentation). par défaut , le pas est 1 (ou -1).
+Exemple: Ecrire un algo puis un prog C qui affiche tous les nombres pairs compris entre 2 et 20.
+
+Algo : pairs
+Déclaration
+    nb : entier
+Début
+    Pour nb allant de 2 à 20 pas de 2 Faire
+        Afficher ("nombre pair : ", nb)
+    Fin pour
+Fin pairs
+Traduction en C :
+#include <stdio.h>
+int main () {
+    int nb ;
+    for (nb = 2 ; nb <= 20 ; nb = nb + 2) {
+        printf ("/nombre pair : %d", nb);
+    }
+    return 0;
+}
+
+Exercice 1 : Ecrire un algo , prog C , dev PHP qui permet de saisir un entier et d'afficher sa table de multiplication de 1 à 10.
+
+Algo : table
+Déclaration
+    nb, mutiplicateur, resultat : entier
+Début
+    Ecrire ("saisir un entier : ")
+    Lire (n)
+    Pour m allant de 1 à 10 Faire
+        resultat <- nb * m
+        Ecrire (nb , " * " , m , " = " , resultat)
+    Fin pour
+Fin tableMultiplication
+
+Traduction en C :
+
+#include <stdio.h>
+int main () {
+    int nb, m, resultat ;
+    printf ("saisir un entier : ");
+    scanf ("%d", &nb);
+    for (m = 1 ; m <= 10 ; m++) {
+        resultat = nb * m;
+        printf ("\n %d * %d = %d", nb, m, resultat);
+    }
+    return 0;
+}
+
+Exercice 2 : Ecrire un algo , prog C n dev Php qui permet de saisir un entier et d'afficher la liste de ses diviseurs.
+ les diviseurs de 10 : 1 , 2 , 5 , 10
+Algo : diviseurs
+Déclaration
+    nb, div : entier*
+Début
+    afficher ("donner un entier :");
+    saisir (nb);
+    pour dev allant de 1 à nb faire
+        si nb % div = 0 
+        alors afficher ("diviseur :" , div)
+        finsi
+    fin pour
+Fin diviseurs
+
+Traduction en C :
+
+#include <stdio.h>
+int main () {
+    int nb , div ; 
+    printf ("donner un entier :");
+    scanf ("%d", &nb); 
+    for (div = 1 ; div <= nb ; div++) {
+        if (nb % div == 0) {
+            printf ("\n diviseur : %d", div);
+        }
+    }
+    return 0;
+}
